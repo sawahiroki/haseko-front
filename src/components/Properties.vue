@@ -2,8 +2,8 @@
   <div>
     <h1>物件リスト</h1>
     <ul id="properties-list">
-      <PropertyView v-bind:item="items[0]" v-bind:key="items.propertyId" />
-      <!-- <PropertyView v-for="item in items" v-bind:key="item.propertyId" /> -->
+      <!--<PropertyView v-bind:item="items[0]" v-bind:key="items.propertyId" />-->
+      <PropertyView v-bind:item="item" v-for="item in items" v-bind:key="item.propertyId" />
     </ul>
   </div>
 </template>
@@ -22,31 +22,32 @@ export default {
         {
           propertyId: 0,
           propertyType: '中古マンション',
-          title: 'モア・クレスト荒川公園しエール館',
+          title: 'モア・クレスト荒川公園シエール館',
           price: 4480,
           planOfHouse: '4LDK',
           comment: {
             l1: 'JR常磐線「三河島駅」徒歩7分'
           },
-          point: {
-            l1: '１４階建８階部分・南東角部屋'
-          },
+          point: [
+            '１４階建８階部分・南東角部屋',
+            '4LDK・81.95m^2・24時間365・・・'
+          ],
           occupiedArea: '81.95m^2',
           builtYearMonth: '1999年9月',
           keep: false
         },
         {
-          propertyId: 0,
-          propertyType: '中古マンション',
-          title: 'モア・クレスト荒川公園しエール館',
+          propertyId: 1,
+          propertyType: '戸建て',
+          title: '東京都江東区千石3丁目',
           price: 4480,
           planOfHouse: '4LDK',
           comment: [
             'JR常磐線「三河島駅」徒歩7分'
           ],
-          point: {
-            l1: '１４階建８階部分・南東角部屋'
-          },
+          point: [
+            '１４階建８階部分・南東角部屋'
+          ],
           occupiedArea: '81.95m^2',
           builtYearMonth: '1999年9月',
           keep: false
