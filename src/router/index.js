@@ -3,6 +3,9 @@ import Router from 'vue-router'
 import Top from '@/components/Top'
 import Properties from '@/components/Properties'
 import Conditions from '@/components/Conditions'
+import Questions from '@/components/Questions'
+import ConditionsChange from '@/components/ConditionsChange'
+import Favorite from '@/components/Favorite'
 
 Vue.use(Router)
 
@@ -22,6 +25,21 @@ export default new Router({
       path: '/conditions',
       name: 'Conditions',
       component: Conditions
+    },
+    {
+      path: '/questions',
+      name: 'Questions',
+      component: Questions
+    },
+    {
+      path: '/conditions/change',
+      name: 'ConditionsChange',
+      component: ConditionsChange
+    },
+    {
+      path: '/favorite',
+      name: 'Favorite',
+      component: Favorite
     }
 
   ]

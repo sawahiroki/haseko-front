@@ -19,7 +19,9 @@ export default {
         { title: 'top', path: '/' },
         { title: 'properties', path: '/properties' },
         { title: 'conditions', path: '/conditions' },
-        { title: 'outputs', path: '/outputs' }
+        { title: 'questions', path: '/questions' },
+        { title: 'conditionsChange', path: '/conditions/change' },
+        { title: 'favorite', path: '/favorite' }
       ]
     }
   }
@@ -30,7 +32,7 @@ export default {
 
 ol {
   margin-left: auto;
-  width: 480px;
+  width: 600px;
   display:flex;
   justify-content: center;
   padding: 0;
@@ -39,7 +41,7 @@ ol {
 
 li {
   width: 100px;
-  height: 50px;
+  height: 40px;
   margin-left:5px;
   margin-right:5px;
   font-size: 16px;
@@ -61,7 +63,7 @@ a {
   height: 100%;
   color: white;
   text-decoration: none;
-  line-height: 50px;
+  line-height: 40px;
 }
 
 </style>
