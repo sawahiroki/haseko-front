@@ -1,9 +1,8 @@
 <template>
   <div>
     <h2>物件一覧</h2>
-    <div id="properties-list">
-      <PropertyView :item="item" v-for="item in items" :key="item.propertyId" />
-    </div>
+      <PropertyView id="properties-list" :item="items[i]" v-for="i of idList" :key="i" />
+      <p>{{ currentPage }}</p>
     <b-pagination
       v-model="currentPage"
       :total-rows="rows"
@@ -24,7 +23,7 @@ export default {
   },
   data () {
     return {
-      perPage: 1,
+      perPage: 2,
       currentPage: 1,
       items: [
         {
@@ -47,7 +46,7 @@ export default {
         },
         {
           propertyId: 1,
-          imgSrc: false,
+          imgSrc: 'https://d1f5hsy4d47upe.cloudfront.net/28/2899126b4f391a47ae6888ab0db8f217_t.jpeg',
           propertyType: '戸建て',
           title: '東京都江東区千石3丁目',
           price: 4480,
@@ -68,6 +67,13 @@ export default {
   computed: {
     rows () {
       return this.items.length
+    },
+    idList () {
+      let list = []
+      for (var i = 0; i < this.perPage; i++) {
+        list.push((this.currentPage - 1) * this.perPage + i)
+      }
+      return list
     }
   }
 }
