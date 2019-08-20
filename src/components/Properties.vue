@@ -1,10 +1,16 @@
 <template>
   <div>
-    <h1>物件リスト</h1>
-    <ul id="properties-list">
-      <!--<PropertyView v-bind:item="items[0]" v-bind:key="items.propertyId" />-->
-      <PropertyView v-bind:item="item" v-for="item in items" v-bind:key="item.propertyId" />
-    </ul>
+    <h2>物件一覧</h2>
+    <div id="properties-list">
+      <PropertyView :item="item" v-for="item in items" :key="item.propertyId" />
+    </div>
+    <b-pagination
+      v-model="currentPage"
+      :total-rows="rows"
+      :per-page="perPage"
+      aria-controls="properties-list"
+      align="center"
+    ></b-pagination>
   </div>
 </template>
 
@@ -18,9 +24,12 @@ export default {
   },
   data () {
     return {
+      perPage: 1,
+      currentPage: 1,
       items: [
         {
           propertyId: 0,
+          imgSrc: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlCFA9ONW498v3SFqV7f9dxS55BxS9pkvZJL7YuQbjajNT43jz',
           propertyType: '中古マンション',
           title: 'モア・クレスト荒川公園シエール館',
           price: 4480,
@@ -34,10 +43,11 @@ export default {
           ],
           occupiedArea: '81.95m^2',
           builtYearMonth: '1999年9月',
-          keep: false
+          favorite: false
         },
         {
           propertyId: 1,
+          imgSrc: false,
           propertyType: '戸建て',
           title: '東京都江東区千石3丁目',
           price: 4480,
@@ -50,9 +60,14 @@ export default {
           ],
           occupiedArea: '81.95m^2',
           builtYearMonth: '1999年9月',
-          keep: false
+          favorite: false
         }
       ]
+    }
+  },
+  computed: {
+    rows () {
+      return this.items.length
     }
   }
 }
