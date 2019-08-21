@@ -1,8 +1,14 @@
 <template>
   <div>
     <h2>物件一覧</h2>
-      <PropertyView id="properties-list" :item="items[i]" v-for="i of idList" :key="i" />
-      <p>{{ currentPage }}</p>
+    <br>
+    <b-button v-b-modal.modal-1>条件を絞り込む</b-button>
+    <b-modal size="xl" id="modal-1" title="条件を絞り込む" title-center >
+      <Conditions />
+    </b-modal>
+
+    <PropertyView id="properties-list" :item="items[i]" v-for="i of idList" :key="i" />
+    <br>
     <b-pagination
       v-model="currentPage"
       :total-rows="rows"
@@ -15,11 +21,13 @@
 
 <script>
 import PropertyView from './PropertyView'
+import Conditions from './Conditions'
 
 export default {
   name: 'Properties',
   components: {
-    PropertyView
+    PropertyView,
+    Conditions
   },
   data () {
     return {
@@ -103,18 +111,6 @@ li {
 
 li:hover {
   opacity: 0.4;
-}
-
-/*  router-linkがaタグとして表示されてたのでスタイルをaタグに書いた*/
-a {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  color: white;
-  text-decoration: none;
-  line-height: 50px;
 }
 
 </style>
