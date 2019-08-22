@@ -2,7 +2,7 @@
   <div>
     <b-container fluid>
     <b-row class="row1">
-      <b-col cols="2"><h5>間取り</h5></b-col>
+      <b-col cols="2"><h5 >間取り</h5></b-col>
       <b-col cols="2"><b-form-radio v-model="selected" name="floor-plan-radios" value=false>未設定</b-form-radio></b-col>
       <b-col cols="2"><b-form-radio v-model="selected" name="floor-plan-radios" value="ワンルーム">ワンルーム</b-form-radio></b-col>
       <b-col cols="2"><b-form-radio v-model="selected" name="floor-plan-radios" value="1K">1K</b-form-radio></b-col>
