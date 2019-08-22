@@ -60,16 +60,7 @@ export default {
         { caption: 'どちらともいえない', state: false },
         { caption: 'どちらかといえば「いいえ」', state: false },
         { caption: 'いいえ', state: false }
-      ],
-      typeStyleObject: {
-        width: '160px',
-        height: '34px',
-        fontSize: '20px',
-        padding: '5px 10px',
-        color: 'white',
-        backgroundColor: 'gray',
-        fontFamily: '"Arial"'
-      }
+      ]
     }
   }
 }
