@@ -1,37 +1,27 @@
 <template>
   <div>
-    <h1>質問</h1>
+    <h2>質問</h2>
+    <SegmentQuestionView :question="segmentQuestions[0]"/>
     <QuestionView :question="questions[0]"/>
   </div>
 </template>
 
 <script>
+import SegmentQuestionView from './SegmentQuestionView'
 import QuestionView from './QuestionView'
 
 export default {
   name: 'Questions',
   components: {
+    SegmentQuestionView,
     QuestionView
   },
   data () {
     return {
-      segmentQuestion: [
+      segmentQuestions: [
         {
           segmentQuestionId: 0,
-          imgSrc: 'https://d1f5hsy4d47upe.cloudfront.net/28/2899126b4f391a47ae6888ab0db8f217_t.jpeg',
-          propertyType: '戸建て',
-          title: '東京都江東区千石3丁目',
-          price: 4480,
-          planOfHouse: '4LDK',
-          comment: [
-            'JR常磐線「三河島駅」徒歩7分'
-          ],
-          point: [
-            '１４階建８階部分・南東角部屋'
-          ],
-          occupiedArea: '81.95m^2',
-          builtYearMonth: '1999年9月',
-          favorite: false
+          questionSentence: 'あなたについてお伺いします。'
         }
       ],
       questions: [
