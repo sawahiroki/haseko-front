@@ -1,57 +1,87 @@
 <template>
   <div>
-    <h1>物件リスト</h1>
-    <ul id="properties-list">
-      <PropertyView v-bind:item="items[0]" v-bind:key="items.propertyId" />
-      <!-- <PropertyView v-for="item in items" v-bind:key="item.propertyId" /> -->
-    </ul>
+    <h2>物件一覧</h2>
+    <br>
+    <b-button v-b-modal.modal-1>条件を絞り込む</b-button>
+    <b-modal size="xl" id="modal-1" title="条件を絞り込む" title-center >
+      <Conditions />
+    </b-modal>
+
+    <PropertyView id="properties-list" :item="items[i]" v-for="i of idList" :key="i" />
+    <br>
+    <b-pagination
+      v-model="currentPage"
+      :total-rows="rows"
+      :per-page="perPage"
+      aria-controls="properties-list"
+      align="center"
+    ></b-pagination>
   </div>
 </template>
 
 <script>
 import PropertyView from './PropertyView'
+import Conditions from './Conditions'
 
 export default {
   name: 'Properties',
   components: {
-    PropertyView
+    PropertyView,
+    Conditions
   },
   data () {
     return {
+      perPage: 2,
+      currentPage: 1,
       items: [
         {
           propertyId: 0,
+          imgSrc: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlCFA9ONW498v3SFqV7f9dxS55BxS9pkvZJL7YuQbjajNT43jz',
           propertyType: '中古マンション',
-          title: 'モア・クレスト荒川公園しエール館',
+          title: 'モア・クレスト荒川公園シエール館',
           price: 4480,
           planOfHouse: '4LDK',
           comment: {
             l1: 'JR常磐線「三河島駅」徒歩7分'
           },
-          point: {
-            l1: '１４階建８階部分・南東角部屋'
-          },
+          point: [
+            '１４階建８階部分・南東角部屋',
+            '4LDK・81.95m^2・24時間365・・・'
+          ],
           occupiedArea: '81.95m^2',
           builtYearMonth: '1999年9月',
-          keep: false
+          favorite: false
         },
         {
-          propertyId: 0,
-          propertyType: '中古マンション',
-          title: 'モア・クレスト荒川公園しエール館',
+          propertyId: 1,
+          imgSrc: 'https://d1f5hsy4d47upe.cloudfront.net/28/2899126b4f391a47ae6888ab0db8f217_t.jpeg',
+          propertyType: '戸建て',
+          title: '東京都江東区千石3丁目',
           price: 4480,
           planOfHouse: '4LDK',
           comment: [
             'JR常磐線「三河島駅」徒歩7分'
           ],
-          point: {
-            l1: '１４階建８階部分・南東角部屋'
-          },
+          point: [
+            '１４階建８階部分・南東角部屋'
+          ],
           occupiedArea: '81.95m^2',
           builtYearMonth: '1999年9月',
-          keep: false
+          favorite: false
         }
       ]
+    }
+  },
+  computed: {
+    rows () {
+      return this.items.length
+    },
+    idList () {
+      let list = []
+      for (var i = 0; i < this.perPage; i++) {
+        list.push((this.currentPage - 1) * this.perPage + i)
+      }
+      return list
     }
   }
 }
@@ -81,18 +111,6 @@ li {
 
 li:hover {
   opacity: 0.4;
-}
-
-/*  router-linkがaタグとして表示されてたのでスタイルをaタグに書いた*/
-a {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  color: white;
-  text-decoration: none;
-  line-height: 50px;
 }
 
 </style>
