@@ -6,12 +6,12 @@ import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 import BootstrapVue from 'bootstrap-vue'
 
+import store from './store'
+
 Vue.config.productionTip = false
 
 Vue.use(Vuex)
 Vue.use(BootstrapVue)
-
-const store = new Vuex.Store({})
 
 /* eslint-disable no-new */
 new Vue({

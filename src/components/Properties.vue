@@ -22,6 +22,7 @@
 <script>
 import PropertyView from './PropertyView'
 import Conditions from './Conditions'
+import { mapGetters } from 'vuex'
 
 export default {
   name: 'Properties',
@@ -108,6 +109,7 @@ export default {
     }
   },
   computed: {
+    ...mapGetters([ ]),
     rows () {
       return this.items.length
     },
