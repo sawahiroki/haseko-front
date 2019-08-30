@@ -6,6 +6,10 @@ import Conditions from '@/components/Conditions'
 import Questions from '@/components/Questions'
 import ConditionsChange from '@/components/ConditionsChange'
 import Favorite from '@/components/Favorite'
+import Search from '@/components/Search'
+import Recommend from '@/components/Recommend'
+import RecommendModified from '@/components/RecommendModified'
+import KeepAdmin from '@/components/KeepAdmin'
 
 Vue.use(Router)
 
@@ -37,10 +41,29 @@ export default new Router({
       component: ConditionsChange
     },
     {
-      path: '/favorite',
+      path: '/keep',
       name: 'Favorite',
       component: Favorite
+    },
+    {
+      path: '/keep/admin',
+      name: 'keepAdmin',
+      component: KeepAdmin
+    },
+    {
+      path: '/search',
+      name: 'Search',
+      component: Search
+    },
+    {
+      path: '/recommend',
+      name: 'Recommend',
+      component: Recommend
+    },
+    {
+      path: '/recommend/modified',
+      name: 'RecommendModified',
+      component: RecommendModified
     }
-
   ]
 })
