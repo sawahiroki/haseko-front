@@ -45,7 +45,7 @@
         </b-media>
       </b-media>
       <h5 class="propertyId">物件番号：{{ property.propertyId }}</h5>
-      <h5 class="Id">No. {{ propertyId }}</h5>
+      <h5 class="Id">No. {{ propertyId + 1 }}</h5>
       <div v-if="favorite">
       <b-button class="favoriteButton" v-on:click="pushFavoriteButton" variant="warning">Keep</b-button>
       </div>
