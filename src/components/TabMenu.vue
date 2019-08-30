@@ -21,7 +21,11 @@ export default {
         { title: 'conditions', path: '/conditions' },
         { title: 'questions', path: '/questions' },
         { title: 'conditionsChange', path: '/conditions/change' },
-        { title: 'favorite', path: '/favorite' }
+        { title: 'keep', path: '/keep' },
+        { title: 'keepAdmin', path: '/keep/admin' },
+        { title: 'search', path: '/search' },
+        { title: 'recommend', path: '/recommend' },
+        { title: 'recommendModified', path: '/recommend/modified' }
       ]
     }
   }
