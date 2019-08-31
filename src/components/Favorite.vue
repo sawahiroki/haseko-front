@@ -4,7 +4,6 @@
     <br>
     <!-- <b-button v-b-modal.modal-1>条件を絞り込む</b-button>
     <b-modal size="xl" id="modal-1" title="条件を絞り込む" title-center >
-      <Conditions />
     </b-modal> -->
     <div id="properties-list" v-for="id of favoriteIdListPerPage" :key="id">
         <PropertyView :propertyId="id" :property="properties[id]" />
@@ -23,13 +22,11 @@
 
 <script>
 import PropertyView from './PropertyView'
-import Conditions from './Conditions'
 
 export default {
   name: 'Properties',
   components: {
-    PropertyView,
-    Conditions
+    PropertyView
   },
   data () {
     return {

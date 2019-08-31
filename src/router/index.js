@@ -2,13 +2,13 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Top from '@/components/Top'
 import Properties from '@/components/Properties'
-import Conditions from '@/components/Conditions'
+import Conditions from '@/components/search/conditions/Conditions'
 import Questions from '@/components/Questions'
-import ConditionsChange from '@/components/ConditionsChange'
+import TagsChange from '@/components/TagsChange'
 import Favorite from '@/components/Favorite'
-import Search from '@/components/Search'
-import Recommend from '@/components/Recommend'
-import RecommendModified from '@/components/RecommendModified'
+import Search from '@/components/search/Search'
+import Recommend from '@/components/recommend/Recommend'
+import RecommendModified from '@/components/recommendModified/RecommendModified'
 import KeepAdmin from '@/components/KeepAdmin'
 
 Vue.use(Router)
@@ -36,9 +36,9 @@ export default new Router({
       component: Questions
     },
     {
-      path: '/conditions/change',
-      name: 'ConditionsChange',
-      component: ConditionsChange
+      path: '/tags',
+      name: 'TagsChange',
+      component: TagsChange
     },
     {
       path: '/keep',

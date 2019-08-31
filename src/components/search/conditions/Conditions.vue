@@ -2,15 +2,15 @@
   <div class="conditions">
     <PriceSelector id="price-selector" />
     <br>
-    <WalkingDistanceSelector id="walking-distance-selector"/>
+    <WalkingDistanceSelector id="walking-distance-selector" />
     <br>
-    <FloorPlanSelector id="floor-plan-selector"/>
+    <FloorPlanSelector id="floor-plan-selector" />
     <br>
-    <OccupiedAreaSelector id="occupied-area-selector"/>
+    <OccupiedAreaSelector id="occupied-area-selector" />
     <br>
-    <BuiltYearMonthSelector id="built-year-month-selector"/>
+    <BuiltYearMonthSelector id="built-year-month-selector" />
     <br>
-    <FreeWordSelector id="free-word-selector"/>
+    <FreeWordSelector id="free-word-selector" />
   </div>
 </template>
 

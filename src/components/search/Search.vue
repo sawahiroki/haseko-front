@@ -7,28 +7,27 @@
       <Conditions />
     </b-modal>
 
-    <!-- <PropertyView id="properties-list" :item="items[i]" v-for="i of idList" :key="i" /> -->
-    <PropertyView id="properties-list" :propertyId="i" :property="properties[i]" v-for="i of idList" :key="i" />
+    <SearchPropertyView id="properties-list" :propertyId="i" :property="properties[i]" v-for="i of idList" :key="i" />
     <br>
-    <!-- <b-pagination
+    <b-pagination
       v-model="currentPage"
       :total-rows="rows"
       :per-page="perPage"
       aria-controls="properties-list"
       align="center"
-    ></b-pagination> -->
+    ></b-pagination>
   </div>
 </template>
 
 <script>
-import PropertyView from '../PropertyView'
-import Conditions from '../Conditions'
-import { mapGetters, mapMutations, mapActions } from 'vuex'
+import SearchPropertyView from './SearchPropertyView'
+import Conditions from './conditions/Conditions'
+import { mapState, mapGetters, mapMutations, mapActions } from 'vuex'
 
 export default {
   name: 'Search',
   components: {
-    PropertyView,
+    SearchPropertyView,
     Conditions
   },
   data () {
@@ -38,11 +37,17 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(
-      {properties: 'searchStore/properties'},
-      {conditions: 'searchStore/conditions'},
-      {keepProperties: 'searchStore/keepProperties'},
-      {keepCount: 'searchStore/keepCount'}
+    ...mapState('searchStore',
+      {properties: 'properties'}
+    ),
+    ...mapState('searchStore',
+      {conditions: 'conditions'}
+    ),
+    ...mapGetters('searchStore',
+      {keepProperties: 'keepProperties'}
+    ),
+    ...mapGetters('searchStore',
+      {keepCount: 'keepCount'}
     ),
     rows () {
       return this.properties.length
@@ -58,15 +63,17 @@ export default {
     }
   },
   methods: {
-    ...mapMutations(
-      {addKeep: 'searchStore/addKeep'},
-      {deleteKeep: 'searchStore/deleteKeep'},
-      {incrementVueCount: 'searchStore/incrementVueCount'},
-      {resetAll: 'searchStore/resetAll'},
-      {changeConditions: 'searchStore/changeConditions'}
+    ...mapMutations('searchStore',
+      {incrementVueCount: 'incrementVueCount'}
     ),
-    ...mapActions(
-      {searchProperties: 'searchStore/searchProperties'}
+    ...mapMutations('searchStore',
+      {resetAll: 'resetAll'}
+    ),
+    ...mapMutations('searchStore',
+      {changeConditions: 'changeConditions'}
+    ),
+    ...mapActions('searchStore',
+      {searchProperties: 'searchProperties'}
     )
   }
 }

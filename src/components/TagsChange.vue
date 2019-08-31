@@ -1,5 +1,5 @@
 <template>
-  <div class="conditionsChange">
+  <div class="tagsChange">
     <h2>条件変更</h2>
     <b-container fluid>
     <b-row v-for="(tag, index) of tags" :key="index">

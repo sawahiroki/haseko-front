@@ -20,7 +20,7 @@ export default {
         { title: 'properties', path: '/properties' },
         { title: 'conditions', path: '/conditions' },
         { title: 'questions', path: '/questions' },
-        { title: 'conditionsChange', path: '/conditions/change' },
+        { title: 'tags', path: '/tags' },
         { title: 'keep', path: '/keep' },
         { title: 'keepAdmin', path: '/keep/admin' },
         { title: 'search', path: '/search' },

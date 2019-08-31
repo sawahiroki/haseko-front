@@ -2,10 +2,6 @@
   <div>
     <h2>物件一覧</h2>
     <br>
-    <b-button v-b-modal.modal-1>条件を絞り込む</b-button>
-    <b-modal size="xl" id="modal-1" title="条件を絞り込む" title-center >
-      <Conditions />
-    </b-modal>
 
     <!-- <PropertyView id="properties-list" :item="items[i]" v-for="i of idList" :key="i" /> -->
     <PropertyView id="properties-list" :propertyId="i" :property="properties[i]" v-for="i of idList" :key="i" />
@@ -22,14 +18,12 @@
 
 <script>
 import PropertyView from './PropertyView'
-import Conditions from './Conditions'
 import { mapGetters } from 'vuex'
 
 export default {
   name: 'Properties',
   components: {
-    PropertyView,
-    Conditions
+    PropertyView
   },
   data () {
     return {
