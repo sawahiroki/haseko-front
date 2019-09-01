@@ -3,18 +3,18 @@ export const searchStore = {
   state: {
     vueCount: 0,
     conditions: {
-      minPrice: 0,
-      maxPrice: 0,
-      farFromStation: '',
-      planOfHouse: [],
-      minOccupiedArea: 0,
-      maxOccupiedArea: 0,
-      builtYearMonth: '',
+      minPrice: null,
+      maxPrice: null,
+      farFromStation: false,
+      planOfHouse: false,
+      minOccupiedArea: null,
+      maxOccupiedArea: null,
+      builtYearMonth: false,
       freeword: ''
     },
     properties: [
       {
-        propertyId: 'HRA18402',
+        propertyId: 'HRA18401',
         imgSrc: 'https://img.miraie-net.com/?v=wKpznCoSVk81LIYax3FD2pIEEG5ZHoxP6ktX5RNlVMHpDyStIZGJ5e7uWgkLBzEM87p-eRvCL2LHJ_lQdxvmt45bHSOGsWph0c0DZyKxx3LYWeWwwPPg1HjqgiXEaVlt',
         propertyType: '新着分譲',
         title: 'モア・クレスト荒川公園シエール館',
@@ -42,7 +42,7 @@ export const searchStore = {
           'タグ3',
           'タグ4'
         ],
-        keep: true
+        keep: false
       },
       {
         propertyId: 'HRA18402',
@@ -73,7 +73,7 @@ export const searchStore = {
           'タグ3',
           'タグ4'
         ],
-        keep: true
+        keep: false
       },
       {
         propertyId: 'HRA18410',
@@ -104,13 +104,13 @@ export const searchStore = {
           'タグ3',
           'タグ4'
         ],
-        keep: true
+        keep: false
       },
       {
-        propertyId: 'HRA18410',
+        propertyId: 'HRA18411',
         imgSrc: 'https://img.miraie-net.com/?v=wKpznCoSVk81LIYax3FD2pIEEG5ZHoxP6ktX5RNlVMHpDyStIZGJ5e7uWgkLBzEM87p-eRvCL2LHJ_lQdxvmt45bHSOGsWph0c0DZyKxx3LYWeWwwPPg1HjqgiXEaVlt',
         propertyType: '賃貸',
-        title: '賃貸物件A',
+        title: '賃貸物件B',
         price: 6.5,
         planOfHouse: '1LDK',
         occupiedInsideArea: 25.66,
@@ -160,11 +160,21 @@ export const searchStore = {
     }
   },
   mutations: {
-    addKeep (state, { num }) {
-      state.properties[num].keep = true
+    addKeep (state, { propertyId }) {
+      for (let [num, property] of state.properties.entries()) {
+        if (property.propertyId === propertyId) {
+          state.properties[num].keep = true
+          break
+        }
+      }
     },
-    deleteKeep (state, { num }) {
-      state.properties[num].keep = false
+    deleteKeep (state, { propertyId }) {
+      for (let [num, property] of state.properties.entries()) {
+        if (property.propertyId === propertyId) {
+          state.properties[num].keep = false
+          break
+        }
+      }
     },
     incrementVueCount (state, { perPage }) {
       /*  1ページあたり何件かによってページ遷移するたびに見た物件数をインクリメントする  */
@@ -173,8 +183,18 @@ export const searchStore = {
     resetAll (state) {
       state.vueCount = 0
       state.properties = []
+      state.conditions = {
+        minPrice: null,
+        maxPrice: null,
+        farFromStation: false,
+        planOfHouse: false,
+        minOccupiedArea: null,
+        maxOccupiedArea: null,
+        builtYearMonth: false,
+        freeword: ''
+      }
     },
-    changeConditions (state, payload) {
+    setConditions (state, payload) {
       for (let condition in payload.conditions) {
         state.conditions[condition] = payload.conditions[condition]
       }

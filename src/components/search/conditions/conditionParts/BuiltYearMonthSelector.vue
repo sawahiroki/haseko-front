@@ -3,7 +3,7 @@
     <b-container fluid>
     <b-row class="row1">
       <b-col cols="2"><h5>築年月</h5></b-col>
-      <b-col cols="2"><b-form-radio v-model="selected" name="built-year-month-radios" value=false>未設定</b-form-radio></b-col>
+      <b-col cols="2"><b-form-radio v-model="selected" name="built-year-month-radios" value="''">未設定</b-form-radio></b-col>
       <b-col cols="2"><b-form-radio v-model="selected" name="built-year-month-radios" value="新築">新築</b-form-radio></b-col>
       <b-col cols="2"><b-form-radio v-model="selected" name="built-year-month-radios" value="1年以内">1年以内</b-form-radio></b-col>
       <b-col cols="2"><b-form-radio v-model="selected" name="built-year-month-radios" value="2年以内">2年以内</b-form-radio></b-col>
@@ -22,13 +22,25 @@
 </template>
 
 <script>
+import { mapState, mapMutations } from 'vuex'
+
 export default {
   name: 'FloorPlanSelector',
   props: { },
   data () {
     return {
-      selected: false
+      selected: ''
     }
+  },
+  computed: {
+    ...mapState('searchStore',
+      {builtYearMonth: 'conditions.builtYearMonth'}
+    )
+  },
+  methods: {
+    ...mapMutations('searchStore',
+      {setBuiltYearMonth: 'setBuiltYearMonth'}
+    )
   }
 }
 </script>

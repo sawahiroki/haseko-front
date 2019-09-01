@@ -7,6 +7,7 @@ import Questions from '@/components/Questions'
 import TagsChange from '@/components/TagsChange'
 import Favorite from '@/components/Favorite'
 import Search from '@/components/search/Search'
+import SearchFavorite from '@/components/search/SearchKeep'
 import Recommend from '@/components/recommend/Recommend'
 import RecommendModified from '@/components/recommendModified/RecommendModified'
 import KeepAdmin from '@/components/KeepAdmin'
@@ -51,9 +52,14 @@ export default new Router({
       component: KeepAdmin
     },
     {
-      path: '/search',
+      path: '/search/properties',
       name: 'Search',
       component: Search
+    },
+    {
+      path: '/search/keep',
+      name: 'SearchKeep',
+      component: SearchFavorite
     },
     {
       path: '/recommend',

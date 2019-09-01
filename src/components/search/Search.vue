@@ -1,13 +1,21 @@
 <template>
   <div>
-    <h2>物件一覧</h2>
+
+  <b-nav tabs fill>
+    <b-nav-item active>検索結果一覧</b-nav-item>
+    <b-nav-item to="/search/keep">Keep一覧</b-nav-item>
+  </b-nav>
+    <div>
     <br>
-    <b-button v-b-modal.modal-1>条件を絞り込む</b-button>
-    <b-modal size="xl" id="modal-1" title="条件を絞り込む" title-center >
+    <h2>検索結果一覧</h2>
+    <br>
+    <b-button v-b-modal.modal-1>条件の変更</b-button>
+    <b-modal size="xl" id="modal-1" title="条件の変更" hide-footer title-center >
       <Conditions />
     </b-modal>
 
-    <SearchPropertyView id="properties-list" :propertyId="i" :property="properties[i]" v-for="i of idList" :key="i" />
+    <br><br>
+    <SearchPropertyView id="properties-list" :propertyNum="i" :property="properties[i]" v-for="i of idList" :key="i" />
     <br>
     <b-pagination
       v-model="currentPage"
@@ -16,6 +24,7 @@
       aria-controls="properties-list"
       align="center"
     ></b-pagination>
+    </div>
   </div>
 </template>
 
@@ -80,26 +89,6 @@ export default {
 </script>
 
 <style scoped>
-
-ol {
-  margin-left: auto;
-  width: 480px;
-  display:flex;
-  justify-content: center;
-  padding: 0;
-  list-style: none;
-}
-
-li {
-  width: 100px;
-  height: 50px;
-  margin-left:5px;
-  margin-right:5px;
-  font-size: 16px;
-  background-color: gray;
-  border-radius: 14px;
-  position: relative;
-}
 
 li:hover {
   opacity: 0.4;

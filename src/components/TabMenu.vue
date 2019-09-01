@@ -23,7 +23,7 @@ export default {
         { title: 'tags', path: '/tags' },
         { title: 'keep', path: '/keep' },
         { title: 'keepAdmin', path: '/keep/admin' },
-        { title: 'search', path: '/search' },
+        { title: 'search', path: '/search/properties' },
         { title: 'recommend', path: '/recommend' },
         { title: 'recommendModified', path: '/recommend/modified' }
       ]
