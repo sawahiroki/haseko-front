@@ -1,21 +1,18 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import BootstrapVue from 'bootstrap-vue'
-import 'bootstrap/dist/css/bootstrap.css'
-import 'bootstrap-vue/dist/bootstrap-vue.css'
 import Top from '@/components/Top'
 import Properties from '@/components/Properties'
-import Conditions from '@/components/Conditions'
+import Conditions from '@/components/search/conditions/Conditions'
 import Questions from '@/components/Questions'
-import ConditionsChange from '@/components/ConditionsChange'
+import TagsChange from '@/components/TagsChange'
 import Favorite from '@/components/Favorite'
-import Search from '@/components/Search'
-import Recommend from '@/components/Recommend'
-import RecommendModified from '@/components/RecommendModified'
+import Search from '@/components/search/Search'
+import SearchFavorite from '@/components/search/SearchKeep'
+import Recommend from '@/components/recommend/Recommend'
+import RecommendModified from '@/components/recommendModified/RecommendModified'
 import KeepAdmin from '@/components/KeepAdmin'
 
 Vue.use(Router)
-Vue.use(BootstrapVue)
 
 export default new Router({
   routes: [
@@ -40,9 +37,9 @@ export default new Router({
       component: Questions
     },
     {
-      path: '/conditions/change',
-      name: 'ConditionsChange',
-      component: ConditionsChange
+      path: '/tags',
+      name: 'TagsChange',
+      component: TagsChange
     },
     {
       path: '/keep',
@@ -55,9 +52,14 @@ export default new Router({
       component: KeepAdmin
     },
     {
-      path: '/search',
+      path: '/search/properties',
       name: 'Search',
       component: Search
+    },
+    {
+      path: '/search/keep',
+      name: 'SearchKeep',
+      component: SearchFavorite
     },
     {
       path: '/recommend',

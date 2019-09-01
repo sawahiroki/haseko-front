@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import Properties from './Properties'
+import Properties from '../Properties'
 
 export default {
   name: 'Recommend',
