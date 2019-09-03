@@ -42,7 +42,8 @@ export default {
   data () {
     return {
       perPage: 3,
-      currentPage: 1
+      currentPage: 1,
+      vueCount: 0
     }
   },
   computed: {
@@ -73,7 +74,10 @@ export default {
   },
   methods: {
     ...mapMutations('searchStore',
-      {incrementVueCount: 'incrementVueCount'}
+      {addVueCount: 'addVueCount'}
+    ),
+    ...mapMutations('searchStore',
+      {saveCurrentPage: 'saveCurrentPage'}
     ),
     ...mapMutations('searchStore',
       {resetAll: 'resetAll'}
@@ -84,6 +88,11 @@ export default {
     ...mapActions('searchStore',
       {searchProperties: 'searchProperties'}
     )
+    // changePage () {
+    //   console.log('check')
+    //   this.addVueCount({perPage: this.perPage})
+    //   this.saveCurrentPage({currentPage: this.currentPage})
+    // }
   }
 }
 </script>

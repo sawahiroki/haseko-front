@@ -17,14 +17,11 @@ export default {
     return {
       items: [
         { title: 'top', path: '/' },
-        { title: 'properties', path: '/properties' },
-        { title: 'conditions', path: '/conditions' },
         { title: 'questions', path: '/questions' },
         { title: 'tags', path: '/tags' },
-        { title: 'keep', path: '/keep' },
         { title: 'keepAdmin', path: '/keep/admin' },
         { title: 'search', path: '/search/properties' },
-        { title: 'recommend', path: '/recommend' },
+        { title: 'recommend', path: '/recommend/properties' },
         { title: 'recommendModified', path: '/recommend/modified' }
       ]
     }
