@@ -54,6 +54,11 @@ export default {
         }
       }
     },
+    resetAnswers () {
+      for (let i = 0; i < this.answers.length; i++) {
+        this.answers[i].state = false
+      }
+    },
     submit () {
       for (let [ansNum, answer] of this.answers.entries()) {
         if (answer.state) {
@@ -61,6 +66,7 @@ export default {
           let ansValue = 2 - ansNum
           this.selectAnswer({questionId: this.question.questionId, answer: ansValue})
           this.decideNextQuestion()
+          this.resetAnswers()
           break
         }
       }

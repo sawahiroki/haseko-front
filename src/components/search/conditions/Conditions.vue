@@ -234,9 +234,12 @@ export default {
     ...mapMutations('searchStore',
       {setConditions: 'setConditions'}
     ),
+    ...mapMutations('searchStore',
+      {resetSavedCurrentPage: 'resetSavedCurrentPage'}
+    ),
     onSubmit () {
-      console.log('sub,mit')
       this.setConditions(this.conditions)
+      this.resetSavedCurrentPage()
     }
   }
 }

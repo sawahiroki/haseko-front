@@ -18,6 +18,7 @@
       :per-page="perPage"
       aria-controls="properties-list"
       align="center"
+      @change="changePage()"
     ></b-pagination>
     </div>
   </div>
@@ -39,6 +40,9 @@ export default {
     }
   },
   computed: {
+    ...mapState('recommendStore',
+      {savedCurrentPage: 'savedCurrentPage'}
+    ),
     ...mapState('recommendStore',
       {properties: 'properties'}
     ),
@@ -63,7 +67,10 @@ export default {
   },
   methods: {
     ...mapMutations('recommendStore',
-      {incrementVueCount: 'incrementVueCount'}
+      {addVueCount: 'addVueCount'}
+    ),
+    ...mapMutations('recommendStore',
+      {saveCurrentPage: 'saveCurrentPage'}
     ),
     ...mapMutations('recommendStore',
       {resetAll: 'resetAll'}
@@ -73,7 +80,16 @@ export default {
     ),
     ...mapActions('recommendStore',
       {searchProperties: 'searchProperties'}
-    )
+    ),
+    changePage () {
+      this.addVueCount({perPage: this.perPage})
+    }
+  },
+  created () {
+    this.currentPage = this.savedCurrentPage
+  },
+  beforeDestroy () {
+    this.saveCurrentPage({currentPage: this.currentPage})
   }
 }
 </script>
