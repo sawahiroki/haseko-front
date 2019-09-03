@@ -22,7 +22,7 @@ export default {
         { title: 'keepAdmin', path: '/keep/admin' },
         { title: 'search', path: '/search/properties' },
         { title: 'recommend', path: '/recommend/properties' },
-        { title: 'recommendModified', path: '/recommend/modified' }
+        { title: 'recommendModified', path: '/recommend/modified/properties' }
       ]
     }
   }

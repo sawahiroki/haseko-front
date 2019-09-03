@@ -2,11 +2,15 @@ export const recommendModifiedStore = {
   namespaced: true,
   state: {
     vueCount: 0,
-    tags: {
-      tag1: -2,
-      tag2: 2,
-      tag3: 1
-    },
+    savedCurrentPage: 1,
+    tags: [
+      { caption: '角部屋', value: 3 },
+      { caption: '広さ', value: 3 },
+      { caption: '階立て', value: 3 },
+      { caption: '立地', value: 3 },
+      { caption: '駅地下', value: 3 },
+      { caption: 'キッチン', value: 3 }
+    ],
     properties: [
       {
         propertyId: 'HRA18401',
@@ -130,7 +134,7 @@ export const recommendModifiedStore = {
           'タグ3',
           'タグ4'
         ],
-        keep: true
+        keep: false
       }
     ]
   },
@@ -171,18 +175,28 @@ export const recommendModifiedStore = {
         }
       }
     },
-    incrementVueCount (state, { perPage }) {
-    /*  1ページあたり何件かによってページ遷移するたびに見た物件数をインクリメントする  */
+    addVueCount (state, { perPage }) {
+      /*  1ページあたり何件かによってページ遷移するたびに見た物件数をインクリメントする  */
       state.vueCount += perPage
     },
+    saveCurrentPage (state, { currentPage }) {
+      state.savedCurrentPage = currentPage
+    },
+    resetSavedCurrentPage (state) {
+      state.savedCurrentPage = 1
+    },
+    setTags (state, { tags }) {
+      state.tags = tags
+    },
     resetAll (state) {
-      state.recommendVueCount = 0
-      state.modifiedVueCount = 0
+      state.vueCount = 0
       state.properties = []
       state.tags = {}
+      state.questions = []
+      state.answers = []
     }
   },
   actions: {
-    recommendProperties () { }
+    getPropertiesByTags () { }
   }
 }
