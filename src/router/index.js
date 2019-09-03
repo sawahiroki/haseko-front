@@ -10,6 +10,7 @@ import RecommendKeep from '@/components/recommend/RecommendKeep'
 import RecommendModified from '@/components/recommendModified/RecommendModified'
 import RecommendModifiedKeep from '@/components/recommendModified/RecommendModifiedKeep'
 import KeepAdmin from '@/components/KeepAdmin'
+import KeepAll from '@/components/KeepAll'
 
 Vue.use(Router)
 
@@ -34,6 +35,11 @@ export default new Router({
       path: '/keep/admin',
       name: 'keepAdmin',
       component: KeepAdmin
+    },
+    {
+      path: '/keep/all',
+      name: 'keepAll',
+      component: KeepAll
     },
     {
       path: '/search/properties',

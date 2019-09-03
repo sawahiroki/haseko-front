@@ -46,6 +46,18 @@
       </b-media>
       <h5 class="propertyId">物件番号：{{ property.propertyId }}</h5>
       <h5 class="propertyNum">No. {{ propertyNum + 1 }}</h5>
+      <!-- <b-media> -->
+        <div>
+          <h5 class="domainSearch" v-if="property.domainSearch" >通常検索</h5>
+        </div>
+        <div>
+          <!-- <h5 class="domain" key="search" v-else></h5> -->
+          <h5 class="domainRecommend" v-if="property.domainRecommend" >レコメンド</h5>
+        </div>
+          <!-- <h5 class="domain" key="recommend" v-else></h5> -->
+          <h5 class="domainRecommendModified" v-if="property.domainRecommendModified" >レコメンド変更</h5>
+          <!-- <h5 class="domain" v-else></h5> -->
+      <!-- </b-media> -->
     </b-card>
   </div>
 </template>
@@ -162,5 +174,29 @@ ul {
   top: -40px;
   position: relative;
   text-align: start;
+}
+.domain {
+  width: 250px;
+  height: 40px;
+  font-size: 20px;
+  padding: 7.5px;
+  color: black;
+  background-color: lightgray;
+  font-family: "Arial";
+  border-radius: 5px;
+  margin-right : 10px;
+  margin-left : 10px;
+}
+.domainSpace {
+  width: 250px;
+  height: 40px;
+  font-size: 20px;
+  padding: 7.5px;
+  color: black;
+  background-color: white;
+  font-family: "Arial";
+  border-radius: 5px;
+  margin-right : 10px;
+  margin-left : 10px;
 }
 </style>>
