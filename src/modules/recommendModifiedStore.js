@@ -1,17 +1,11 @@
-export const searchStore = {
+export const recommendModifiedStore = {
   namespaced: true,
   state: {
     vueCount: 0,
-    currentPage: 1,
-    conditions: {
-      minPrice: null,
-      maxPrice: null,
-      farFromStation: false,
-      planOfHouse: false,
-      minOccupiedArea: null,
-      maxOccupiedArea: null,
-      builtYearMonth: false,
-      freeword: ''
+    tags: {
+      tag1: -2,
+      tag2: 2,
+      tag3: 1
     },
     properties: [
       {
@@ -177,34 +171,18 @@ export const searchStore = {
         }
       }
     },
-    addVueCount (state, { perPage }) {
-      /*  1ページあたり何件かによってページ遷移するたびに見た物件数をインクリメントする  */
+    incrementVueCount (state, { perPage }) {
+    /*  1ページあたり何件かによってページ遷移するたびに見た物件数をインクリメントする  */
       state.vueCount += perPage
     },
-    saveCurrentPage (state, { currentPage }) {
-      state.currentPage = currentPage
-    },
     resetAll (state) {
-      state.vueCount = 0
+      state.recommendVueCount = 0
+      state.modifiedVueCount = 0
       state.properties = []
-      state.conditions = {
-        minPrice: null,
-        maxPrice: null,
-        farFromStation: false,
-        planOfHouse: false,
-        minOccupiedArea: null,
-        maxOccupiedArea: null,
-        builtYearMonth: false,
-        freeword: ''
-      }
-    },
-    setConditions (state, payload) {
-      for (let condition in payload.conditions) {
-        state.conditions[condition] = payload.conditions[condition]
-      }
+      state.tags = {}
     }
   },
   actions: {
-    searchProperties () { }
+    recommendProperties () { }
   }
 }

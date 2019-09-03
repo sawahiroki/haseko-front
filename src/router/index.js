@@ -1,14 +1,12 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Top from '@/components/Top'
-import Properties from '@/components/Properties'
-import Conditions from '@/components/search/conditions/Conditions'
-import Questions from '@/components/Questions'
-import TagsChange from '@/components/TagsChange'
-import Favorite from '@/components/Favorite'
+import Questions from '@/components/recommend/Questions'
+import TagsChange from '@/components/recommendModified/TagsChange'
 import Search from '@/components/search/Search'
-import SearchFavorite from '@/components/search/SearchKeep'
+import SearchKeep from '@/components/search/SearchKeep'
 import Recommend from '@/components/recommend/Recommend'
+import RecommendKeep from '@/components/recommend/RecommendKeep'
 import RecommendModified from '@/components/recommendModified/RecommendModified'
 import KeepAdmin from '@/components/KeepAdmin'
 
@@ -22,16 +20,6 @@ export default new Router({
       component: Top
     },
     {
-      path: '/properties',
-      name: 'Properties',
-      component: Properties
-    },
-    {
-      path: '/conditions',
-      name: 'Conditions',
-      component: Conditions
-    },
-    {
       path: '/questions',
       name: 'Questions',
       component: Questions
@@ -40,11 +28,6 @@ export default new Router({
       path: '/tags',
       name: 'TagsChange',
       component: TagsChange
-    },
-    {
-      path: '/keep',
-      name: 'Favorite',
-      component: Favorite
     },
     {
       path: '/keep/admin',
@@ -59,12 +42,17 @@ export default new Router({
     {
       path: '/search/keep',
       name: 'SearchKeep',
-      component: SearchFavorite
+      component: SearchKeep
     },
     {
-      path: '/recommend',
+      path: '/recommend/properties',
       name: 'Recommend',
       component: Recommend
+    },
+    {
+      path: '/recommend/keep',
+      name: 'RecommendKeep',
+      component: RecommendKeep
     },
     {
       path: '/recommend/modified',

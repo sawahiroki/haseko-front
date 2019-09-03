@@ -29,7 +29,7 @@ import SearchPropertyView from './SearchPropertyView'
 import { mapGetters } from 'vuex'
 
 export default {
-  name: 'SearchFavorite',
+  name: 'SearchKeep',
   components: {
     SearchPropertyView
   },
