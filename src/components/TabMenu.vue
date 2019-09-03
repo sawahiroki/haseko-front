@@ -19,10 +19,11 @@ export default {
         { title: 'top', path: '/' },
         { title: 'questions', path: '/questions' },
         { title: 'tags', path: '/tags' },
+        { title: 'keepAll', path: '/keep/all' },
         { title: 'keepAdmin', path: '/keep/admin' },
         { title: 'search', path: '/search/properties' },
         { title: 'recommend', path: '/recommend/properties' },
-        { title: 'recommendModified', path: '/recommend/modified' }
+        { title: 'recommendModified', path: '/recommend/modified/properties' }
       ]
     }
   }

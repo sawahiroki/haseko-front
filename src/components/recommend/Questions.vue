@@ -1,15 +1,26 @@
 <template>
   <div>
+  <br>
     <h2>質問</h2>
-    <SegmentQuestionView :question="segmentQuestions[0]"/>
-    <QuestionView :question="question"/>
+    <div v-if="!segmentAnsweredFlg">
+      <SegmentQuestionView :question="segmentQuestion"/>
+    </div>
+    <div v-else-if="!questionsAnsweredFlg">
+      <QuestionView :question="question"/>
+    </div>
+    <div v-else>
+      <br>
+      <br>
+      <br>
+      <b-button class="resultButton" to="recommend/properties">結果を見る</b-button>
+    </div>
   </div>
 </template>
 
 <script>
 import SegmentQuestionView from './SegmentQuestionView'
 import QuestionView from './QuestionView'
-import { mapState, mapGetters, mapMutations } from 'vuex'
+import { mapState, mapGetters } from 'vuex'
 
 export default {
   name: 'Questions',
@@ -22,13 +33,23 @@ export default {
       {question: 'question'}
     ),
     ...mapState('recommendStore',
-      {segmentQuestions: 'segmentQuestions'}
-    )
-  },
-  methods: {
-    ...mapMutations('recommendStore',
-      {selectAnswer: 'selectAnswer'}
+      {segmentQuestion: 'segmentQuestion'}
+    ),
+    ...mapState('recommendStore',
+      {segmentAnsweredFlg: 'segmentAnsweredFlg'}
+    ),
+    ...mapState('recommendStore',
+      {questionsAnsweredFlg: 'questionsAnsweredFlg'}
     )
   }
 }
 </script>
+<style scoped>
+.resultButton {
+  margin-right : 10px;
+  margin-left : 10px;
+  top: 30px;
+  position: relative;
+  text-align: start;
+}
+</style>

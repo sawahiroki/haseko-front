@@ -46,19 +46,40 @@
       </b-media>
       <h5 class="propertyId">物件番号：{{ property.propertyId }}</h5>
       <h5 class="propertyNum">No. {{ propertyNum + 1 }}</h5>
+      <div class="favoriteButton" v-if="property.keep">
+      <b-button v-on:click="pushFavoriteButton()" variant="warning">Keep</b-button>
+      </div>
+      <div class="favoriteButton" v-else>
+      <b-button v-on:click="pushFavoriteButton()" variant="outline-warning">Keep</b-button>
+      </div>
     </b-card>
   </div>
 </template>
 
 <script>
+import { mapMutations } from 'vuex'
+
 export default {
-  name: 'SearchPropertyView',
+  name: 'RecommendModifiedPropertyView',
   props: {
     property: Object,
     propertyNum: Number,
     recommendFlg: Boolean
   },
   methods: {
+    pushFavoriteButton () {
+      if (this.property.keep) {
+        this.deleteKeep({propertyId: this.property.propertyId})
+      } else {
+        this.addKeep({propertyId: this.property.propertyId})
+      }
+    },
+    ...mapMutations('recommendModifiedStore',
+      {addKeep: 'addKeep'}
+    ),
+    ...mapMutations('recommendModifiedStore',
+      {deleteKeep: 'deleteKeep'}
+    )
   }
 }
 </script>

@@ -22,18 +22,27 @@
             </b-row>
         </b-container>
       <br>
-      <b-button>次へ</b-button>
+      <b-button @click="submit()">回答する</b-button>
     </b-card>
   </div>
 </template>
 
 <script>
+import { mapMutations } from 'vuex'
+
 export default {
   name: 'SegmentQuestionView',
   props: {
     question: Object
   },
-  methods: { },
+  methods: {
+    ...mapMutations('recommendStore',
+      {finishSegmentQuestion: 'finishSegmentQuestion'}
+    ),
+    submit () {
+      this.finishSegmentQuestion()
+    }
+  },
   data () {
     return {
       questionCount: 0,

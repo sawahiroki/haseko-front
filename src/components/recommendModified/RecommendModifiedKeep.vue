@@ -2,7 +2,7 @@
   <div>
 
   <b-nav tabs fill>
-    <b-nav-item to="/recommend/properties">結果一覧</b-nav-item>
+    <b-nav-item to="/recommend/modified/properties">結果一覧</b-nav-item>
     <b-nav-item active>Keep一覧</b-nav-item>
   </b-nav>
     <div>
@@ -11,7 +11,7 @@
     <br>
 
     <br><br>
-    <RecommendPropertyView id="properties-list" :propertyNum="i" :property="keepProperties[i]" v-for="i of idList" :key="i" />
+    <RecommendModifiedPropertyView id="properties-list" :propertyNum="i" :property="keepProperties[i]" v-for="i of idList" :key="i" />
     <br>
     <b-pagination
       v-model="currentPage"
@@ -25,13 +25,13 @@
 </template>
 
 <script>
-import RecommendPropertyView from './RecommendPropertyView'
+import RecommendModifiedPropertyView from './RecommendModifiedPropertyView'
 import { mapGetters } from 'vuex'
 
 export default {
-  name: 'RecommendKeep',
+  name: 'RecommendModifiedKeep',
   components: {
-    RecommendPropertyView
+    RecommendModifiedPropertyView
   },
   data () {
     return {
@@ -40,10 +40,10 @@ export default {
     }
   },
   computed: {
-    ...mapGetters('recommendStore',
+    ...mapGetters('recommendModifiedStore',
       {keepProperties: 'keepProperties'}
     ),
-    ...mapGetters('recommendStore',
+    ...mapGetters('recommendModifiedStore',
       {keepCount: 'keepCount'}
     ),
     rows () {

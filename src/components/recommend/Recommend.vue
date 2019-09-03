@@ -2,12 +2,12 @@
   <div>
 
   <b-nav tabs fill>
-    <b-nav-item active>検索結果一覧</b-nav-item>
+    <b-nav-item active>結果一覧</b-nav-item>
     <b-nav-item to="/recommend/keep">Keep一覧</b-nav-item>
   </b-nav>
     <div>
     <br>
-    <h2>検索結果一覧</h2>
+    <h2>結果一覧</h2>
     <br>
     <br><br>
     <RecommendPropertyView id="properties-list" :propertyNum="i" :property="properties[i]" v-for="i of idList" :key="i" />
