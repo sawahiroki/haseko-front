@@ -2,7 +2,7 @@ export const searchStore = {
   namespaced: true,
   state: {
     vueCount: 0,
-    currentPage: 1,
+    savedCurrentPage: 1,
     conditions: {
       minPrice: null,
       maxPrice: null,
@@ -182,7 +182,10 @@ export const searchStore = {
       state.vueCount += perPage
     },
     saveCurrentPage (state, { currentPage }) {
-      state.currentPage = currentPage
+      state.savedCurrentPage = currentPage
+    },
+    resetSavedCurrentPage (state) {
+      state.savedCurrentPage = 1
     },
     resetAll (state) {
       state.vueCount = 0

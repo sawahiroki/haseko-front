@@ -2,6 +2,7 @@ export const recommendStore = {
   namespaced: true,
   state: {
     vueCount: 0,
+    savedCurrentPage: 1,
     nextQuestionId: 0,
     segmentQuestions: [
       {
@@ -252,7 +253,8 @@ export const recommendStore = {
       }
     },
     decideNextQuestion (state) {
-      state.nextQuestionId = 1
+      // TODO:actionで質問を取ってくるように作るかも
+      state.nextQuestionId += 1
     },
     addKeep (state, { propertyId }) {
       for (let [num, property] of state.properties.entries()) {
@@ -270,9 +272,15 @@ export const recommendStore = {
         }
       }
     },
-    incrementVueCount (state, { perPage }) {
-    /*  1ページあたり何件かによってページ遷移するたびに見た物件数をインクリメントする  */
+    addVueCount (state, { perPage }) {
+      /*  1ページあたり何件かによってページ遷移するたびに見た物件数をインクリメントする  */
       state.vueCount += perPage
+    },
+    saveCurrentPage (state, { currentPage }) {
+      state.savedCurrentPage = currentPage
+    },
+    resetSavedCurrentPage (state) {
+      state.savedCurrentPage = 1
     },
     resetAll (state) {
       state.vueCount = 0

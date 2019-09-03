@@ -23,6 +23,7 @@
       :per-page="perPage"
       aria-controls="properties-list"
       align="center"
+      @change="changePage()"
     ></b-pagination>
     </div>
   </div>
@@ -42,11 +43,13 @@ export default {
   data () {
     return {
       perPage: 3,
-      currentPage: 1,
-      vueCount: 0
+      currentPage: 1
     }
   },
   computed: {
+    ...mapState('searchStore',
+      {savedCurrentPage: 'savedCurrentPage'}
+    ),
     ...mapState('searchStore',
       {properties: 'properties'}
     ),
@@ -87,12 +90,16 @@ export default {
     ),
     ...mapActions('searchStore',
       {searchProperties: 'searchProperties'}
-    )
-    // changePage () {
-    //   console.log('check')
-    //   this.addVueCount({perPage: this.perPage})
-    //   this.saveCurrentPage({currentPage: this.currentPage})
-    // }
+    ),
+    changePage () {
+      this.addVueCount({perPage: this.perPage})
+    }
+  },
+  created () {
+    this.currentPage = this.savedCurrentPage
+  },
+  beforeDestroy () {
+    this.saveCurrentPage({currentPage: this.currentPage})
   }
 }
 </script>
