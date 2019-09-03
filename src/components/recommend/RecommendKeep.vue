@@ -2,7 +2,7 @@
   <div>
 
   <b-nav tabs fill>
-    <b-nav-item to="/recommend/properties">検索結果一覧</b-nav-item>
+    <b-nav-item to="/recommend/properties">結果一覧</b-nav-item>
     <b-nav-item active>Keep一覧</b-nav-item>
   </b-nav>
     <div>

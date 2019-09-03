@@ -1,15 +1,19 @@
+const MAX_QUESTION_COUNT = 3
+
 export const recommendStore = {
   namespaced: true,
   state: {
+    // MAX_QUESTION_COUNT: 3,
     vueCount: 0,
     savedCurrentPage: 1,
     nextQuestionId: 0,
-    segmentQuestions: [
-      {
-        segmentQuestionId: 0,
-        questionSentence: 'あなたについてお伺いします。'
-      }
-    ],
+    segmentAnsweredFlg: false,
+    questionsAnsweredFlg: false,
+    questionCount: 0,
+    segmentQuestion: {
+      segmentQuestionId: 0,
+      questionSentence: 'あなたについてお伺いします。'
+    },
     questions: [
       {
         questionId: 0,
@@ -58,19 +62,19 @@ export const recommendStore = {
     ],
     answers: [
       {
-        question_id: 0,
+        questionId: 0,
         answer: 0
       },
       {
-        question_id: 1,
+        questionId: 1,
         answer: -1
       },
       {
-        question_id: 2,
+        questionId: 2,
         answer: 2
       },
       {
-        question_id: 3,
+        questionId: 3,
         answer: 1
       }
     ],
@@ -234,27 +238,28 @@ export const recommendStore = {
     }
   },
   mutations: {
-    selectAnswer (state, { questionId, answer }) {
+    finishSegmentQuestion (state) {
+      state.segmentAnsweredFlg = true
+    },
+    finishQuestions (state) {
+      state.questionsAnsweredFlg = true
+    },
+    selectAnswer (state, { questionId, answerValue }) {
       for (let [num, answer] of state.answers.entries()) {
         if (answer.questionId === questionId) {
-          if (answer === 'はい') {
-            state.answers[num]['answer'] = 2
-          } else if (answer === 'どちらかといえば「はい」') {
-            state.answers[num]['answer'] = 1
-          } else if (answer === 'どちらともいえない') {
-            state.answers[num]['answer'] = 0
-          } else if (answer === 'どちらかといえば「いいえ」') {
-            state.answers[num]['answer'] = -1
-          } else {
-            state.answers[num]['answer'] = -2
-          }
+          state.answers[num]['answer'] = answerValue
+          state.questionCount += 1
           break
         }
       }
     },
     decideNextQuestion (state) {
-      // TODO:actionで質問を取ってくるように作るかも
-      state.nextQuestionId += 1
+      // TODO:ロジックを入れるか、actionで質問を取ってくるように作る
+      if (state.questionCount < MAX_QUESTION_COUNT) {
+        state.nextQuestionId += 1
+      } else {
+        state.questionsAnsweredFlg = true
+      }
     },
     addKeep (state, { propertyId }) {
       for (let [num, property] of state.properties.entries()) {
@@ -283,6 +288,8 @@ export const recommendStore = {
       state.savedCurrentPage = 1
     },
     resetAll (state) {
+      state.segmentAnsweredFlg = false
+      state.questionsAnsweredFlg = false
       state.vueCount = 0
       state.properties = []
       state.tags = {}

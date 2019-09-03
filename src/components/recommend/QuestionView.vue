@@ -14,17 +14,6 @@
       <br>
       <br>
       <b-button @click="submit()">回答する</b-button>
-      <!-- <br>
-      <b-button-group size="sm">
-      <b-button
-        v-for="(ans, idx) in answers"
-        :key="idx"
-        :pressed.sync="ans.state"
-        variant="outline-primary"
-      >
-        {{ ans.caption }}
-      </b-button>
-      </b-button-group> -->
       </b-container>
     </b-card>
   </div>
@@ -64,7 +53,7 @@ export default {
         if (answer.state) {
           /* はい:2、どちらかといえば「はい」:1、どちらでも無い:0、どちらかといえば「いいえ」:-1、いいえ:-2 を返す  */
           let ansValue = 2 - ansNum
-          this.selectAnswer({questionId: this.question.questionId, answer: ansValue})
+          this.selectAnswer({questionId: this.question.questionId, answerValue: ansValue})
           this.decideNextQuestion()
           this.resetAnswers()
           break
