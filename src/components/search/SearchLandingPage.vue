@@ -1,5 +1,7 @@
 <template>
   <div class="conditions">
+  <br>
+  <h2>通常検索</h2>
   <b-form @submit="onSubmit()" >
     <!-- 値段 -->
     <div class="priceSelector">

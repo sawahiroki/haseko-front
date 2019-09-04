@@ -206,7 +206,7 @@ export const recommendStore = {
           'タグ3',
           'タグ4'
         ],
-        keep: true
+        keep: false
       }
     ]
   },

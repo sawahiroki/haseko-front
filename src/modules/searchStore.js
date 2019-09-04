@@ -136,7 +136,7 @@ export const searchStore = {
           'タグ3',
           'タグ4'
         ],
-        keep: true
+        keep: false
       }
     ]
   },

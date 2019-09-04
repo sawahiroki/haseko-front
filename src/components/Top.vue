@@ -1,6 +1,8 @@
 <template>
   <div class="top">
-    <h1>Topページ</h1>
+    <br>
+    <h2>Topページ</h2>
+    <p>左上のメニューから通常検索へ移動してください</p>
   </div>
 </template>
 

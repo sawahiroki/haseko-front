@@ -1,5 +1,6 @@
 <template>
   <div class="keepAdmin">
+    <br>
     <h2>Keep物件一覧(管理)</h2>
     <h5 class="address">通常検索：{{ searchVueCount }}件</h5>
     <h5 class="propertyGenre">レコメンド：{{ recommendVueCount }}件</h5>

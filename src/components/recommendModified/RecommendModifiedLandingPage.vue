@@ -1,5 +1,7 @@
 <template>
   <div class="tagsChange">
+    <br>
+    <h2>タグの修正</h2>
     <b-form @submit="pushButton()" >
     <b-container fluid>
     <b-row v-for="(tag, index) of tags" :key="index">

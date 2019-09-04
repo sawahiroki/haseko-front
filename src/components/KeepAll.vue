@@ -1,5 +1,6 @@
 <template>
   <div class="keepAdmin">
+    <br>
     <h2>Keep物件一覧(採点用)</h2>
     <PropertyView id="properties-list" :propertyNum="i" :property="properties[i]" v-for="i of idList" :key="i" />
   </div>
