@@ -206,7 +206,7 @@ export const recommendStore = {
           'タグ3',
           'タグ4'
         ],
-        keep: true
+        keep: false
       }
     ]
   },
@@ -288,12 +288,14 @@ export const recommendStore = {
       state.savedCurrentPage = 1
     },
     resetAll (state) {
+      state.vueCount = 0
+      state.nextQuestionId = 0
       state.segmentAnsweredFlg = false
       state.questionsAnsweredFlg = false
-      state.vueCount = 0
       state.properties = []
       state.tags = {}
       state.questions = []
+      state.segmentQuestion = []
       state.answers = []
     }
   },

@@ -46,18 +46,15 @@
       </b-media>
       <h5 class="propertyId">物件番号：{{ property.propertyId }}</h5>
       <h5 class="propertyNum">No. {{ propertyNum + 1 }}</h5>
-      <!-- <b-media> -->
-        <div>
-          <h5 class="domainSearch" v-if="property.domainSearch" >通常検索</h5>
-        </div>
-        <div>
-          <!-- <h5 class="domain" key="search" v-else></h5> -->
-          <h5 class="domainRecommend" v-if="property.domainRecommend" >レコメンド</h5>
-        </div>
-          <!-- <h5 class="domain" key="recommend" v-else></h5> -->
-          <h5 class="domainRecommendModified" v-if="property.domainRecommendModified" >レコメンド変更</h5>
-          <!-- <h5 class="domain" v-else></h5> -->
-      <!-- </b-media> -->
+      <b-media>
+        <h5 class="domainSpace2" slot="aside"></h5>
+        <h5 class="domain" slot="aside" v-if="property.domainSearch" >通常検索</h5>
+        <h5 class="domainSpace" slot="aside" key="search" v-else></h5>
+        <h5 class="domain" slot="aside" v-if="property.domainRecommend" >レコメンド</h5>
+        <h5 class="domainSpace" slot="aside" key="recommend" v-else></h5>
+        <h5 class="domain" slot="aside" v-if="property.domainRecommendModified" >レコメンド変更</h5>
+        <h5 class="domainSpace" slot="aside" v-else></h5>
+      </b-media>
     </b-card>
   </div>
 </template>
@@ -189,6 +186,18 @@ ul {
 }
 .domainSpace {
   width: 250px;
+  height: 40px;
+  font-size: 20px;
+  padding: 7.5px;
+  color: black;
+  background-color: white;
+  font-family: "Arial";
+  border-radius: 5px;
+  margin-right : 10px;
+  margin-left : 10px;
+}
+.domainSpace2 {
+  width: 150px;
   height: 40px;
   font-size: 20px;
   padding: 7.5px;

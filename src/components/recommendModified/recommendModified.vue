@@ -9,6 +9,10 @@
     <br>
     <h2>結果一覧</h2>
     <br>
+    <b-button v-b-modal.modal-1>条件の変更</b-button>
+    <b-modal size="xl" id="modal-1" title="条件の変更" hide-footer title-center >
+      <TagsChange />
+    </b-modal>
     <br><br>
     <RecommendModifiedPropertyView id="properties-list" :propertyNum="i" :property="properties[i]" v-for="i of idList" :key="i" />
     <br>
@@ -26,12 +30,14 @@
 
 <script>
 import RecommendModifiedPropertyView from './RecommendModifiedPropertyView'
+import TagsChange from './TagsChange'
 import { mapState, mapGetters, mapMutations, mapActions } from 'vuex'
 
 export default {
   name: 'Recommend',
   components: {
-    RecommendModifiedPropertyView
+    RecommendModifiedPropertyView,
+    TagsChange
   },
   data () {
     return {

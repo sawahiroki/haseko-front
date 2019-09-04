@@ -136,7 +136,7 @@ export const searchStore = {
           'タグ3',
           'タグ4'
         ],
-        keep: true
+        keep: false
       }
     ]
   },
@@ -189,6 +189,7 @@ export const searchStore = {
     },
     resetAll (state) {
       state.vueCount = 0
+      state.savedCurrentPage = 1
       state.properties = []
       state.conditions = {
         minPrice: null,

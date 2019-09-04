@@ -1,5 +1,6 @@
 <template>
   <div class="keepAdmin">
+    <br>
     <h2>Keep物件一覧(管理)</h2>
     <h5 class="address">通常検索：{{ searchVueCount }}件</h5>
     <h5 class="propertyGenre">レコメンド：{{ recommendVueCount }}件</h5>
@@ -47,7 +48,7 @@ export default {
         let doubleCountFlg = 0
         for (let _property of properties) {
           if (_property.propertyId === property.propertyId) {
-            property.domainRecommend = true
+            _property.domainRecommend = true
             doubleCountFlg += 1
             break
           }
@@ -61,7 +62,7 @@ export default {
         let doubleCountFlg = 0
         for (let _property of properties) {
           if (_property.propertyId === property.propertyId) {
-            property.domainRecommendModified = true
+            _property.domainRecommendModified = true
             doubleCountFlg += 1
             break
           }

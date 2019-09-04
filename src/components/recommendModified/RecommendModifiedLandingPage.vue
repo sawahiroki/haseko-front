@@ -1,5 +1,7 @@
 <template>
   <div class="tagsChange">
+    <br>
+    <h2>タグの修正</h2>
     <b-form @submit="pushButton()" >
     <b-container fluid>
     <b-row v-for="(tag, index) of tags" :key="index">
@@ -12,7 +14,7 @@
     <b-container fluid>
       <b-row class="text-center">
       <b-col cols="5"></b-col>
-      <b-col cols="2"><b-button type="submit" variant="primary">変更する</b-button></b-col>
+      <b-col cols="2"><b-button type="submit" variant="primary" to="/recommend/modified/properties">変更する</b-button></b-col>
       </b-row>
     </b-container>
   </b-form>
