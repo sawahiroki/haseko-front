@@ -47,7 +47,7 @@ export default {
         let doubleCountFlg = 0
         for (let _property of properties) {
           if (_property.propertyId === property.propertyId) {
-            property.domainRecommend = true
+            _property.domainRecommend = true
             doubleCountFlg += 1
             break
           }
@@ -61,7 +61,7 @@ export default {
         let doubleCountFlg = 0
         for (let _property of properties) {
           if (_property.propertyId === property.propertyId) {
-            property.domainRecommendModified = true
+            _property.domainRecommendModified = true
             doubleCountFlg += 1
             break
           }

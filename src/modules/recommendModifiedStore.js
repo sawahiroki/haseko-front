@@ -190,10 +190,9 @@ export const recommendModifiedStore = {
     },
     resetAll (state) {
       state.vueCount = 0
+      state.savedCurrentPage = 1
       state.properties = []
-      state.tags = {}
-      state.questions = []
-      state.answers = []
+      state.tags = []
     }
   },
   actions: {

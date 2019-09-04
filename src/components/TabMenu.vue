@@ -1,5 +1,6 @@
 <template>
   <div>
+    <Menu></Menu>
     <ol>
       <li v-for="(item, index) in items" :key=index>
          <router-link v-bind:to=item.path>
@@ -11,8 +12,12 @@
 </template>
 
 <script>
+import Menu from './Menu'
 export default {
   name: 'TabMenu',
+  component: {
+    Menu
+  },
   data () {
     return {
       items: [

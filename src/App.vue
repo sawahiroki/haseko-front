@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <Menu></Menu>
     <tab-menu></tab-menu> <!-- router-viewより上にあるので、これはrootに関わらず上に表示されるヘッダー -->
     <router-view/>
   </div>
@@ -8,11 +9,13 @@
 <script>
 
 import TabMenu from '@/components/TabMenu'
+import Menu from '@/components/Menu'
 
 export default {
   name: 'App',
   components: {
-    TabMenu
+    TabMenu,
+    Menu
   }
 }
 </script>
