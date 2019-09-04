@@ -3,9 +3,9 @@
 <b-navbar type="dark" variant="dark">
   <b-navbar-nav right>
     <b-nav-item-dropdown text="Menu">
-    <b-dropdown-item to="/search/properties">通常検索</b-dropdown-item>
+    <b-dropdown-item to="/search">通常検索</b-dropdown-item>
     <b-dropdown-item to="/questions">レコメンド</b-dropdown-item>
-    <b-dropdown-item to="/tags">レコメンド修正</b-dropdown-item>
+    <b-dropdown-item to="/recommend/modified">レコメンド修正</b-dropdown-item>
     <b-dropdown-item to="/keep/all">Keep物件一覧(採点用)</b-dropdown-item>
     <h5>--------------------------------</h5>
     <b-dropdown-item to="/keep/admin">Keep物件一覧(管理用)</b-dropdown-item>

@@ -5,10 +5,12 @@ import Questions from '@/components/recommend/Questions'
 import TagsChange from '@/components/recommendModified/TagsChange'
 import Search from '@/components/search/Search'
 import SearchKeep from '@/components/search/SearchKeep'
+import SearchLandingPage from '@/components/search/SearchLandingPage'
 import Recommend from '@/components/recommend/Recommend'
 import RecommendKeep from '@/components/recommend/RecommendKeep'
 import RecommendModified from '@/components/recommendModified/RecommendModified'
 import RecommendModifiedKeep from '@/components/recommendModified/RecommendModifiedKeep'
+import RecommendModifiedLandingPage from '@/components/recommendModified/RecommendModifiedLandingPage'
 import KeepAdmin from '@/components/KeepAdmin'
 import KeepAll from '@/components/KeepAll'
 
@@ -42,6 +44,11 @@ export default new Router({
       component: KeepAll
     },
     {
+      path: '/search',
+      name: 'SearchLandingPage',
+      component: SearchLandingPage
+    },
+    {
       path: '/search/properties',
       name: 'Search',
       component: Search
@@ -70,6 +77,11 @@ export default new Router({
       path: '/recommend/modified/keep',
       name: 'RecommendModifiedKeep',
       component: RecommendModifiedKeep
+    },
+    {
+      path: '/recommend/modified',
+      name: 'RecommendModifiedLandingPage',
+      component: RecommendModifiedLandingPage
     }
   ]
 })
